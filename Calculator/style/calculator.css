@@ -1,0 +1,55 @@
+.calculator {
+    width: 270px;
+    /* Set the width of the calculator */
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333333;
+}
+
+.numberBotton {
+    background: linear-gradient(to top right, #000000, #333333, #666666, #999999, #CCCCCC);
+    padding: 20px;
+    cursor: pointer;
+   /* border: 2px solid whitesmoke;*/
+    border-radius: 30px;
+    margin: 5px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.zeroButton {
+    width: 125px;
+}
+.OperationAC{
+    padding: 20px;
+    background: linear-gradient(45deg, #ff0000, #b56227);
+    color: whitesmoke;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+  /*  border: 2px solid whitesmoke;*/
+
+}
+
+.opn {
+    background: linear-gradient(to top right, #A67C00, #FFD700);
+}
+
+.display {
+    background:  #999999;
+    height: 40px;
+    width: 240px;
+    border: 2px;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 30px;
+    cursor: text;
+    text-align: right;
+
+}
