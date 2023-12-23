@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website</title>
+  <style>
+    /* Basic styling for the navigation bar */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navigationBar {
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+
+      
+    }
+
+    .navigationBar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 25;
+    }
+
+    .navigationBar a:hover {
+      color: blue; /* Change the color when hovering */
+    }
+    .content {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navigationBar">
+    <a href="#" onclick="loadContent('home')">Home</a>
+    <a href="#" onclick="loadContent('gallery')">Gallery</a>
+    <a href="#" onclick="loadContent('about')">About Me</a>
+    <a href="#" onclick="loadContent('contact')">Contact</a>
+  </div>
+
+  <div class="content">
+    <!-- Default content (Home page content) -->
+    <!-- This section will be populated by the fetched content -->
+  </div>
+
+  <script>
+    function loadContent(page = 'home') {
+      const contentDiv = document.querySelector('.content');
+
+      // Fetch content based on the page parameter
+      fetch(`${page}.html`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(html => {
+          contentDiv.innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error fetching content:', error);
+        });
+    }
+
+    // Load default content (Home page content) on page load
+    window.addEventListener('load', () => {
+      loadContent(); // Load the default content (Home page)
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery Page</title>
+  <style>
+     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+    .container {
+      position: relative;
+    }
+
+    .item {
+      position: absolute;
+      
+    }
+
+    /* Define positions for individual images */
+    .item1 {
+      top: 20px;
+      left: 50px;
+      width: 400px;    
+      overflow: hidden;
+
+    }
+
+    .item2 {
+      top: 0px;
+      left: 460px;
+      width: 530px;
+      overflow: hidden;
+
+    }
+
+    .item3 {
+      top: 20px;
+      left: 1000px;
+      width: 400px;
+      overflow: hidden;
+
+    }
+    .item4 {
+      top: 220px;
+      left: 50px;
+      width: 400px;
+      overflow: hidden;
+
+    }
+    .item5 {
+      top: 255px;
+      left: 460px;
+      width: 530px;
+      overflow: hidden;
+
+    }
+    .item6 {
+      top: 220px;
+      left: 1000px;
+      width: 400px;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .item7 {
+      top: 420px;
+      left: 50px;
+      width: 400px; 
+      height: 330px;
+      overflow: hidden;
+      
+    }
+
+    .item8 {
+      top: 510px;
+      left: 460px;
+      width: 530px;
+      overflow: hidden;
+
+    }
+    .item9 {
+      top: 730px;
+      left: 1000px;
+      width: 400px;
+      height: 495px;
+      overflow: hidden;
+    }
+
+    .item10 {
+      top: 765px;
+      left: 50px;
+      width: 940px; 
+      height: 460px;
+      overflow: hidden;
+      
+    }
+
+    .item11 {
+      top: 1235px;
+      left: 50px;
+      width: 1350px; 
+      height: 650px;
+      overflow: hidden;
+      
+    }
+
+    .item12 {
+      top: 1890px;
+      left: 50px;
+      width: 400px;
+      height: 480px;
+      overflow: hidden;
+    }
+
+    .item13 {
+      top: 1895px;
+      left: 460px;
+      width: 940px; 
+      height: 470px;
+      overflow: hidden;
+      
+    }
+
+    .item14 {
+      top: 2375px;
+      left: 50px;
+      width: 690px; 
+      height: 350px;
+      overflow: hidden;
+      
+    }
+
+    .item15 {
+      top: 2375px;
+      left: 750px;
+      width: 650px; 
+      height: 350px;
+      overflow: hidden;
+      
+    }
+    .item16 {
+      top: 2735px;
+      left: 50px;
+      width: 1350px; 
+      height: 700px;
+      overflow: hidden;
+      
+    }
+    .item17 {
+      top: 3445px;
+      left: 50px;
+      width: 325px; 
+      height: 690px;
+      overflow: hidden;
+      
+    }
+    .item18 {
+      top: 3445px;
+      left: 385px;
+      width: 680px; 
+      height: 340px;
+      overflow: hidden;
+      
+    }
+    .item19 {
+      top: 3795px;
+      left: 385px;
+      width: 680px; 
+      height: 340px;
+      overflow: hidden;
+      
+    }
+    .item20 {
+      top: 3445px;
+      left: 1075px;
+      width: 325px; 
+      height: 690px;
+      overflow: hidden;
+      
+    }
+    .item21 {
+      top: 4145px;
+      left: 50px;
+      width: 670px; 
+      height: 350px;
+      overflow: hidden;
+      
+    }
+
+    .item22 {
+      top: 4145px;
+      left: 730px;
+      width: 670px; 
+      height: 350px;
+      overflow: hidden;
+      
+    }
+    .item23 {
+      top: 4505px;
+      left: 50px;
+      width: 1350px; 
+      height: 800px;
+      overflow: hidden;
+      
+    }
+
+    /* Add more classes for additional images */
+    /* .item4, .item5, etc. */
+
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease; /* Add a smooth transition effect */
+      cursor: pointer; /* Change cursor to indicate clickability */
+
+    }
+    .item img:hover {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+  }
+  .zoomed-in {
+    transform: scale(1.5); /* Adjust the scale factor as needed */
+    z-index: 1; /* Bring the zoomed image to the front */
+    cursor: pointer; /* Change cursor to indicate clickability */
+  }
+   
+  </style>
+</head>
+<body>
+
+ 
+<div class="container">
+    <div class="item item1">
+      <img src="images/0.png" onclick="openFullscreen(this)">
+    </div>
+    <div class="item item2">
+      <img src="images/1.jpg" onclick="openFullscreen(this)">
+    </div>
+    <div class="item item3">
+      <img src="images/2.jpg" onclick="openFullscreen(this)">
+    </div>
+    <div class="item item4">
+      <img src="images/4.jpg" onclick="openFullscreen(this)">
+    </div>
+    <div class="item item5">
+      <img src="images/5.jpg" onclick="openFullscreen(this)">
+    </div>
+    <div class="item item6">
+      <img src="images/9.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item7">
+      <img src="images/7.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item8">
+      <img src="images/8.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item9">
+      <img src="images/6.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item10">
+      <img src="images/10.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item11">
+      <img src="images/11.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item12">
+      <img src="images/12.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item13">
+      <img src="images/14.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item14">
+      <img src="images/13.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item15">
+      <img src="images/15.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item16">
+      <img src="images/18.jpeg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item17">
+      <img src="images/20.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item18">
+      <img src="images/16.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item19">
+      <img src="images/17.jpeg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item20">
+      <img src="images/22.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item21">
+      <img src="images/19.JPG"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item22">
+      <img src="images/21.jpg"onclick="openFullscreen(this)">
+    </div>
+    <div class="item item23">
+      <img src="images/23.png"onclick="openFullscreen(this)">
+    </div>
+    
+  </div>
+
+</body>
+<script>
+function openFullscreen(element) {
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { /* Firefox  ko lagi  */
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera  haru ko lagi */
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { /* IE/Edge ko lagi */
+      element.msRequestFullscreen();
+    }
+  }
+</script>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Contact Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+
+   .containerL span {
+      display: block;
+      position: relative; /* Container for absolute positioning */
+      margin: 10px;
+    }
+
+   .containerL span a {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: whitesmoke;
+      border-radius: 50px;
+      padding: 25px;
+      transition: width 0.5s;
+      text-decoration: none; /* Add this line to remove default underline */
+    }
+
+    /* Text content */
+    .containerL span::after {
+      content: attr(data-text); /* Get text from data attribute */
+      position: absolute;
+      top: 50%;
+      left: 80px; /* Adjust the left position as needed */
+      transform: translateY(-50%);
+      opacity: 0; /* Initially hidden */
+      transition: opacity 2s ease;
+    }
+
+    /* Show text on hover */
+   .containerL span:hover::after {
+      opacity: 1;
+      font-size: 30px;
+    }
+
+    /* Hover effect */
+   .containerL span:hover a {
+      width: 170px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .background-image {
+      background-image: url('images/0.png');
+      background-size: cover;
+      background-position: center;
+      /* Center the background image */
+      opacity: 1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      /* Place the background behind the content */
+    }
+    .containerL {
+      height: 100%;
+      width: 50%;
+      float: left;
+      display: flex;
+      flex-direction: column; /* Set icons to display in a column */
+    }
+    
+    .containerR {
+      height: 100%;
+      width: 50%;
+      float: right;
+      display: flex;
+      flex-direction: column; /* Set icons to display in a column */
+
+    }
+    
+
+  </style>
+</head>
+
+<body>
+  <bg class="background-image"></bg>
+
+<div class="containerL" >
+  <span data-text="Facebook">
+    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-3x"></i></a>
+
+  </span>
+  <span data-text="Twitter"> 
+    <a href="https://twitter.com/SilonRajthala" target="_blank">
+      <i class="fab fa-twitter fa-3x"></i>
+    </a></span>
+  <span data-text="Instagram"> 
+    <a href="https://www.instagram.com/itzmesilon__" target="_blank">
+      <i class="fab fa-instagram fa-3x"></i>
+    </a></span>
+  <span data-text="Youtube">
+    <a href="https://www.youtube.com" target="_blank">
+      <i class="fab fa-youtube fa-3x"></i>
+    </a></span>
+  <span data-text="Linkedin">
+    <a href="https://www.linkedin.com/" target="_blank">
+      <i class="fab fa-linkedin fa-3x"></i>
+    </a></span>
+
+  </div>
+  <div class="containerR">
+<h1>Contact Me</h1>
+<h2>Mail: <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=seelon.rajthala.7@gmail.com" target="_blank">seelon.rajthala.7@gmail.com</a></h2>
+<h2>Mobile Number: +977 9803298969</h2>
+<h2>Number: +977 01 6655321</h2>
+<h3>My projects</h3>
+  </div>
+</body>
+<!-- JavaScript for the typing animation -->
+
+</html>
