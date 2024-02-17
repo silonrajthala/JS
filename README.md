@@ -1,5 +1,6 @@
 # JS
-#function getSideSubMenu($parentId, $level = 1) {
+.php
+function getSideSubMenu($parentId, $level = 1) {
   $submenulist = DB::select(DB::raw("
     select m.id, m.modulename, m.url, m.icon
     from modules m
