@@ -402,3 +402,53 @@ Figure 5: Admin Dashboard
 Figure 6: Class View
 ![image](https://github.com/silonrajthala/JS/assets/154122439/a9dba67d-a65b-4b3b-83f1-f22a0e8abad4)
 
+
+
+<ul class="sidebar-nav">
+    <li class="sidebar-header">
+        Pages
+    </li>
+    
+    @php
+    $menuList = getSideMenu();
+    $path = Request::path();
+    @endphp
+
+    @foreach($menuList as $menu)
+
+        @php
+        $subMenuList = getSideSubMenu($menu->id);
+        @endphp
+
+        <li class="sidebar-item">
+            <a data-bs-toggle="collapse" href="#{{ preg_replace('/\s/', '', $menu->modulename) }}" class="sidebar-link">
+                <i class="align-middle {{ $menu->icon }}" data-feather="layout"></i> <span class="align-middle">{{ $menu->modulename }}</span>
+            </a>
+            
+            <ul id="{{ preg_replace('/\s/', '', $menu->modulename) }}" class="sidebar-dropdown list-unstyled collapse">
+                @foreach($subMenuList as $subMenu)
+
+                    @php
+                    $subSubMenuList = getSideSubMenu($subMenu->id);
+                    @endphp
+
+                    <li class="sidebar-item">
+                        <a data-bs-toggle="collapse" href="#{{ preg_replace('/\s/', '', $subMenu->modulename) }}" class="sidebar-link">
+                            <i class="align-middle {{ $subMenu->icon }}" data-feather="layout"></i> <span class="align-middle">{{ $subMenu->modulename }}</span>
+                        </a>
+
+                        <ul id="{{ preg_replace('/\s/', '', $subMenu->modulename) }}" class="sidebar-dropdown list-unstyled collapse">
+                            @foreach($subSubMenuList as $subSubMenu)
+                                <li class="sidebar-item">
+                                    <a href="{{ url('/admin/' . $subSubMenu->url) }}" class="sidebar-link">
+                                        <i class="align-middle {{ $subSubMenu->icon }}"></i> <span class="align-middle">{{ $subSubMenu->modulename }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
+    @endforeach
+</ul>
