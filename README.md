@@ -452,3 +452,103 @@ Figure 6: Class View
         </li>
     @endforeach
 </ul>
+
+<ul class="sidebar-nav">
+    <li class="sidebar-header">
+        Pages
+    </li>
+
+    @php
+    $menulist = getSideMenu();
+    $path = Request::path();
+    @endphp
+
+    @foreach($menulist as $li)
+
+    @php
+        $submenulist = getSideSubMenu($li->id);
+        $subsublist = []; // Array to store 3rd level data
+
+        foreach ($submenulist as $subli) {
+            $thirdLevel = getThirdLevelMenu($subli->id); // Function to get 3rd level data
+            $subsublist[$subli->id] = $thirdLevel; // Store 3rd level data for each sub menu
+        }
+    @endphp
+
+    @if(count($submenulist) > 0)
+
+        @php
+            $html = '';
+            $isactive = '';
+            $collapsed = 'collapsed';
+            $ariaexpanded = 'false';
+            $iscollapse = 'collapse';
+
+            foreach($submenulist as $subli) {
+                $menuname = $subli->modulename;
+                $url = $subli->url;
+                $icon = $subli->icon;
+
+                if ($path == 'admin/' . $url) {
+                    $active = 'active';
+                    $isactive = 'active';
+                    $collapsed = '';
+                    $ariaexpanded = 'true';
+                    $iscollapse = '';
+                } else {
+                    $active = '';
+                }
+
+                $subMenuHtml = '';
+                if (count($subsublist[$subli->id]) > 0) { // Check if there's 3rd level data
+                    foreach ($subsublist[$subli->id] as $thirdli) {
+                        $thirdMenuName = $thirdli->modulename;
+                        $thirdUrl = $thirdli->url;
+                        $subMenuHtml .= '<li class="sidebar-subitem">
+                            <a class="sidebar-link" href="' . url('/admin/' . $thirdUrl) . '">
+                                ' . $thirdMenuName . '
+                            </a>
+                        </li>';
+                    }
+                }
+
+                $html .= '<li class="sidebar-item ' . $active . '">
+                    <a data-bs-target="#' . preg_replace('/\s/', '', $li->modulename) . '" data-bs-toggle="collapse" class="sidebar-link ' . $collapsed . '" aria-expanded="' . $ariaexpanded . '">
+                        <i class="align-middle ' . $li->icon . '" data-feather="layout"></i> <span class="align-middle">' . $li->modulename . '</span>
+                    </a>
+
+                    <ul id="' . preg_replace('/\s/', '', $li->modulename) . '" class="sidebar-dropdown list-unstyled ' . $iscollapse . '" data-bs-parent="#sidebar">
+                        ' . $subMenuHtml . ' @php echo $html; @endphp </ul>
+                </li>';
+            }
+        @endphp
+
+    <li class="sidebar-item {{$isactive}}">
+        <a data-bs-target="#{{preg_replace('/\s/', '', $li->modulename)}}" data-bs-toggle="collapse" class="sidebar-link {{$collapsed}}" aria-expanded="{{$ariaexpanded}}">
+            <i class="align-middle {{$li->icon}}" data-feather="layout"></i> <span class="align-middle">{{$li->modulename}}</span>
+        </a>
+
+        <ul id="{{preg_replace('/\s/', '', $li->modulename)}}" class="sidebar-dropdown list-unstyled {{$iscollapse}}" data-bs-parent="#sidebar">
+            @php echo $html; @endphp
+        </ul>
+    </li>
+
+    @else
+        @php
+            if ($path == 'admin/' . $li->url) {
+                $active = 'active';
+            } else {
+                $active = '';
+            }
+       					 @endphp
+					<li class="sidebar-item {{$active}}">
+						<a class="sidebar-link" href="{{url('/admin/'.$li->url)}}">
+							<i class="align-middle {{$li->icon}}" ></i> <span class="align-middle">{{$li->modulename}}</span>
+						</a>
+					</li>
+					@endif
+					@endforeach
+
+					
+				</ul>
+
